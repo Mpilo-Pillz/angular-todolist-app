@@ -8,3 +8,9 @@
 .item:last-child {
     border-bottom: 0;
 }
+
+input[type="checkbox"] {
+    margin: 20px;
+  }
+
+  
