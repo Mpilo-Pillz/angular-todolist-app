@@ -1,12 +1,12 @@
-import { Injectable, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { ItemModel } from './task-item.model';
 
 @Injectable({providedIn: 'root'})
 export class TaskItemService {
-  private tdItems: tdItems[] = [];
-  private tdItemsUpdated = new Subject<Post[]>();
+  private tdItems: ItemModel[] = [];
+  private tdItemsUpdated = new Subject<ItemModel[]>();
 
   getTdItems() {
     return[...this.tdItems];
@@ -16,10 +16,11 @@ export class TaskItemService {
     return this.tdItemsUpdated.asObservable();
   }
 
-  addTDItem(todoItem: string){
-    const tdItems: tdItems = {todoItem: todoItem};
+  addTDItem(todoItem: string) {
+    const tdItem: ItemModel = {todoItem: todoItem};
     this.tdItems.push(tdItem);
     this.tdItemsUpdated.next([...this.tdItems]);
+    console.log(this.tdItems);
   }
 }
 

@@ -1,9 +1,12 @@
-<form action="" class="item">
+<form (submit)="onAddToDoItem(addItem)" class="item" #addItem="ngForm">
     <input 
     type="text" 
     name="newItem"
+    ngModel
     placeholder="Please enter a new Item"
-    required>
+    required
+    #todoItem="ngModel">
+    <!-- <p *ngIf="todoItem.invalid">Please enter a post to do item.</p> -->
     
     <button
     type="submit"
