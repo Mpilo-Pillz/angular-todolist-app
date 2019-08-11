@@ -4,7 +4,7 @@ html {
     background-image: -webkit-linear-gradient(65deg, #2F1B6C 50%, #E4E9FD 50%);
     min-height: 1000px;
     font-family: Georgia, 'Times New Roman', Times, serif
-    
+
 }
 
 .box {
@@ -12,7 +12,7 @@ html {
     margin: 50px auto;
     background: white;
     border-radius: 5px;
-}  
+}
 
 p {
     margin: 0;
