@@ -10,7 +10,7 @@ import { TaskItemService } from '../to-do-list/task-items.service';
     styleUrls: ['./to-do-list.component.css']
 })
 
-export class ToDoListComponent {
+export class ToDoListComponent implements OnInit, OnDestroy {
     tdItems: ItemModel[] = [];
     private itemsSub: Subscription;
 
@@ -20,7 +20,7 @@ export class ToDoListComponent {
         this.tdItems = this.taskItemService.getTdItems();
         this.itemsSub = this.taskItemService.getTdItemUpdateListener()
         .subscribe((tdItems: ItemModel[]) => {
-            this.tdItems = this.tdItems;
+            this.tdItems = tdItems;
         });
 
     }
