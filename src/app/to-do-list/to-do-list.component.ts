@@ -18,8 +18,13 @@ export class ToDoListComponent {
 
     ngOnInit() {
         this.tdItems = this.taskItemService.getTdItems();
-        this.itemsSub = this.taskItemService.getTdItemUpdateListener().subscribe((tdItems: ItemModel[]) =>
-        this.tdItems = this.tdItems);
+        this.itemsSub = this.taskItemService.getTdItemUpdateListener()
+        .subscribe((tdItems: ItemModel[]) => {
+            this.tdItems = this.tdItems;
+        });
 
+    }
+    ngOnDestroy() {
+        this.itemsSub.unsubscribe();
     }
 }
