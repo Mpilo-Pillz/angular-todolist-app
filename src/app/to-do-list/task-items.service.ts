@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { ItemModel } from './task-item.model';
 
@@ -8,8 +10,22 @@ export class TaskItemService {
   private tdItems: ItemModel[] = [];
   private tdItemsUpdated = new Subject<ItemModel[]>();
 
+  constructor(private http: HttpClient) {}
   getTdItems() {
-    return[...this.tdItems];
+    // return[...this.tdItems];
+    this.http.get<({message: string, tasks: any})>('http://localhost:3000/api/tasks').pipe(map((taskData) => {
+      return taskData.tasks.map(task => {
+        return {
+          todoItem: task.newItem,
+          id: task._id
+        };
+      });
+    }
+    )).subscribe(
+      transformedTasks => {
+        this.tdItems = transformedTasks;
+        this.tdItemsUpdated.next([...this.tdItems]);
+      });
   }
 
   getTdItemUpdateListener() {
@@ -17,10 +33,17 @@ export class TaskItemService {
   }
 
   addTDItem(todoItem: string) {
-    const tdItem: ItemModel = {todoItem: todoItem};
-    this.tdItems.push(tdItem);
+    const tdItem: ItemModel = {id: null, todoItem: todoItem};
+    this.http.post<{message: string, taskId: string}>('http://localhost:3000/api/tasks', tdItem).subscribe(responseData => {
+      const id = responseData.taskId;
+      tdItem.id = id;
+      console.log(responseData.message);
+      this.tdItems.push(tdItem);
     this.tdItemsUpdated.next([...this.tdItems]);
-    console.log(this.tdItems);
+      console.log(this.tdItems);
+    });
+
   }
+  
 }
 

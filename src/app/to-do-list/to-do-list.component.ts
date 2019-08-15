@@ -17,7 +17,8 @@ export class ToDoListComponent implements OnInit, OnDestroy {
     constructor(public taskItemService: TaskItemService) {    }
 
     ngOnInit() {
-        this.tdItems = this.taskItemService.getTdItems();
+        // this.tdItems = this.taskItemService.getTdItems();
+        this.taskItemService.getTdItems();
         this.itemsSub = this.taskItemService.getTdItemUpdateListener()
         .subscribe((tdItems: ItemModel[]) => {
             this.tdItems = tdItems;
