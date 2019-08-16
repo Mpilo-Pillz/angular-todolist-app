@@ -19,6 +19,7 @@ export class AddToListComponent {
          return;
      }
      this.taskItemService.addTDItem(form.value.newItem),
+     console.log(form.value.newItem);
      form.resetForm();
  }
 }

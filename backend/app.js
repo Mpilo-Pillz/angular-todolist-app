@@ -21,15 +21,15 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/tasks", (req, res, next) => {
-    const todoItem = new Task({
+    const task = new Task({
         todoItem: req.body.newItem
     });
-    todoItem.save().then(createTask => {
+    task.save().then(createdTask => {
         console.log(createdTask);
         console.log(task);
      res.status(201).json({
          message: 'Task created successfully',
-         taskId: createTask._id
+         taskId: createdTask._id
      });   
     });
 });

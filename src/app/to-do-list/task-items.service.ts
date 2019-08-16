@@ -39,11 +39,18 @@ export class TaskItemService {
       tdItem.id = id;
       console.log(responseData.message);
       this.tdItems.push(tdItem);
-    this.tdItemsUpdated.next([...this.tdItems]);
-      console.log(this.tdItems);
+      this.tdItemsUpdated.next([...this.tdItems]);
+      // console.log("this is the array " + this.tdItems);
     });
 
   }
-  
+  // deletePost(taskId: string) {
+  //   this.http.delete('http://localhost:3000/api/tasks/' + taskId).subscribe(() => {
+  //   const updatedTasks = this.tdItems.filter(tdItems => tdItems.id !== taskId);
+  //   this.tdItems = updatedTasks;
+  //   this.tdItemsUpdated.next([...this.tdItems]);
+  //   console.log('Deleted Post');
+  //   });
+  // }
 }
 
