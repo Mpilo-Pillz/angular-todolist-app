@@ -18,8 +18,8 @@ export class AddToListComponent {
      if (form.invalid) {
          return;
      }
-     this.taskItemService.addTDItem(form.value.newItem),
-     console.log(form.value.newItem);
+     this.taskItemService.addTDItem(form.value.todoItem),
+     console.log(form.value.todoItem);
      form.resetForm();
  }
 }

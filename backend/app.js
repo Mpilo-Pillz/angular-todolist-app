@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 
 app.post("/api/tasks", (req, res, next) => {
     const task = new Task({
-        todoItem: req.body.newItem
+        todoItem: req.body.todoItem
     });
     task.save().then(createdTask => {
         console.log(createdTask);

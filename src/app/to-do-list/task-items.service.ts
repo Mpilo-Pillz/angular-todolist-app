@@ -16,7 +16,7 @@ export class TaskItemService {
     this.http.get<({message: string, tasks: any})>('http://localhost:3000/api/tasks').pipe(map((taskData) => {
       return taskData.tasks.map(task => {
         return {
-          todoItem: task.newItem,
+          todoItem: task.todoItem,
           id: task._id
         };
       });
