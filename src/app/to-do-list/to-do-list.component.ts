@@ -26,9 +26,9 @@ export class ToDoListComponent implements OnInit, OnDestroy {
 
     }
 
-    // onDelete(taskId: string) {
-    //     this.taskItemService.deleteTask(taskId);
-    // }
+    onDelete(taskId: string) {
+        this.taskItemService.deleteTask(taskId);
+    }
     ngOnDestroy() {
         this.itemsSub.unsubscribe();
     }

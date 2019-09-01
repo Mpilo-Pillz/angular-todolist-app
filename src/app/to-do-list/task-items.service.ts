@@ -44,13 +44,13 @@ export class TaskItemService {
     });
 
   }
-  // deletePost(taskId: string) {
-  //   this.http.delete('http://localhost:3000/api/tasks/' + taskId).subscribe(() => {
-  //   const updatedTasks = this.tdItems.filter(tdItems => tdItems.id !== taskId);
-  //   this.tdItems = updatedTasks;
-  //   this.tdItemsUpdated.next([...this.tdItems]);
-  //   console.log('Deleted Post');
-  //   });
-  // }
+  deleteTask(taskId: string) {
+    this.http.delete('http://localhost:3000/api/tasks/' + taskId).subscribe(() => {
+    const updatedTasks = this.tdItems.filter(tdItems => tdItems.id !== taskId);
+    this.tdItems = updatedTasks;
+    this.tdItemsUpdated.next([...this.tdItems]);
+    console.log('Deleted Post');
+    });
+  }
 }
 

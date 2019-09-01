@@ -1,34 +1,10 @@
 <div class="box">
-    <!-- <div class="item">
-        <p>Angular</p>
-    </div>
-
-    <div class="item">
-        <p>Vue</p>
-    </div>
-
-    <div class="item">
-        <p>React</p>
-    </div>
-
-    <div class="item">
-        <p>Flutter</p>
-    </div> -->
-
-    <!-- <form >
+   
+    <form >
         <div class="item" *ngFor="let tdItem of tdItems">
          <input type="checkbox"
          name="checkbox"
-         value=""
-         onChange=""  > 
-         <p>{{ tdItem.todoItem }}</p>
-        </div>
-    </form> -->
-
-    <!-- <form > -->
-        <div class="item" *ngFor="let tdItem of tdItems">
-         <input type="checkbox"
-         name="checkbox"
+         (click)="onDelete(tdItem.id)"
          value=""
          onChange=""  > 
          <p  >{{tdItem.todoItem}}</p>
@@ -36,6 +12,6 @@
         </div>
 
         <app-add-to-list></app-add-to-list>
-    <!-- </form> -->
+    </form>
     
 </div>
