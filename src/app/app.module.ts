@@ -6,7 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListTitleComponent } from './list-title/list-title.component';
-import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { ToDoListComponent } from './to-do-list/view-to-do-list/to-do-list.component';
 import { AddToListComponent } from './to-do-list/add-to-list/add-to-list.component';
 
 @NgModule({
